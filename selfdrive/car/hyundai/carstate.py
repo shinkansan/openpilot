@@ -140,6 +140,7 @@ class CarState(CarStateBase):
     ret.seatbeltUnlatched = cp.vl["DOORS_SEATBELTS"]["DRIVER_SEATBELT_LATCHED"] == 0
 
     gear = cp.vl["ACCELERATOR"]["GEAR"]
+    
     ret.gearShifter = self.parse_gear_shifter(self.shifter_values.get(gear))
 
     # TODO: figure out positions
@@ -153,6 +154,8 @@ class CarState(CarStateBase):
     ret.vEgo, ret.aEgo = self.update_speed_kf(ret.vEgoRaw)
     ret.standstill = ret.vEgoRaw < 0.1
 
+    #print(ret.vEgo, ret.gearShifter, gear, cp.vl["WHEEL_SPEEDS"]["WHEEL_SPEED_1"])
+
     ret.steeringRateDeg = cp.vl["STEERING_SENSORS"]["STEERING_RATE"]
     ret.steeringAngleDeg = cp.vl["STEERING_SENSORS"]["STEERING_ANGLE"] * -1
     ret.steeringTorque = cp.vl["MDPS"]["STEERING_COL_TORQUE"]
@@ -161,6 +164,8 @@ class CarState(CarStateBase):
 
     ret.leftBlinker, ret.rightBlinker = self.update_blinker_from_lamp(50, cp.vl["BLINKERS"]["LEFT_LAMP"],
                                                                       cp.vl["BLINKERS"]["RIGHT_LAMP"])
+
+    #print(ret.steeringRateDeg, ret.steeringAngleDeg)
 
     ret.cruiseState.available = True
     ret.cruiseState.enabled = cp.vl["SCC1"]["CRUISE_ACTIVE"] == 1
@@ -382,4 +387,4 @@ class CarState(CarStateBase):
       ("DOORS_SEATBELTS", 4),
     ]
 
-    return CANParser(DBC[CP.carFingerprint]["pt"], signals, checks, 5)
+    return CANParser(DBC[CP.carFingerprint]["pt"], signals, checks, 4)

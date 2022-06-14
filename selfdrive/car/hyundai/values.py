@@ -52,7 +52,7 @@ class CAR:
   SANTA_FE_PHEV_2022 = "HYUNDAI SANTA FE PlUG-IN HYBRID 2022"
   SONATA = "HYUNDAI SONATA 2020"
   SONATA_LF = "HYUNDAI SONATA 2019"
-  TUCSON = "HYUNDAI TUCSON 2019"
+  TUCSON_DIESEL_2019 = "HYUNDAI TUCSON DIESEL 2019"
   PALISADE = "HYUNDAI PALISADE 2020"
   VELOSTER = "HYUNDAI VELOSTER 2019"
   SONATA_HYBRID = "HYUNDAI SONATA HYBRID 2021"
@@ -76,6 +76,8 @@ class CAR:
   GENESIS_G70_2020 = "GENESIS G70 2020"
   GENESIS_G80 = "GENESIS G80 2017"
   GENESIS_G90 = "GENESIS G90 2017"
+
+  TUCSON_2022 ="HYUNDAI TUSCON 2022"
 
 
 @dataclass
@@ -105,10 +107,7 @@ CAR_INFO: Dict[str, Optional[Union[HyundaiCarInfo, List[HyundaiCarInfo]]]] = {
   CAR.SANTA_FE_PHEV_2022: HyundaiCarInfo("Hyundai Santa Fe Plug-in Hybrid 2022", "All", harness=Harness.hyundai_l),
   CAR.SONATA: HyundaiCarInfo("Hyundai Sonata 2020-22", "All", video_link="https://www.youtube.com/watch?v=ix63r9kE3Fw", harness=Harness.hyundai_a),
   CAR.SONATA_LF: HyundaiCarInfo("Hyundai Sonata 2018-19", harness=Harness.hyundai_e),
-  CAR.TUCSON: [
-    HyundaiCarInfo("Hyundai Tucson 2021", min_enable_speed=19 * CV.MPH_TO_MS, harness=Harness.hyundai_l),
-    HyundaiCarInfo("Hyundai Tucson Diesel 2019", harness=Harness.hyundai_l),
-  ],
+  CAR.TUCSON_DIESEL_2019: HyundaiCarInfo("Hyundai Tucson Diesel 2019", harness=Harness.hyundai_l),
   CAR.PALISADE: [
     HyundaiCarInfo("Hyundai Palisade 2020-21", "All", video_link="https://youtu.be/TAnDqjF4fDY?t=456", harness=Harness.hyundai_h),
     HyundaiCarInfo("Kia Telluride 2020", harness=Harness.hyundai_h),
@@ -145,6 +144,8 @@ CAR_INFO: Dict[str, Optional[Union[HyundaiCarInfo, List[HyundaiCarInfo]]]] = {
   CAR.KIA_STINGER: HyundaiCarInfo("Kia Stinger 2018", video_link="https://www.youtube.com/watch?v=MJ94qoofYw0", harness=Harness.hyundai_c),
   CAR.KIA_CEED: HyundaiCarInfo("Kia Ceed 2019", harness=Harness.hyundai_e),
   CAR.KIA_EV6: HyundaiCarInfo("Kia EV6 2022", "All", harness=Harness.none),
+
+  CAR.TUCSON_2022: HyundaiCarInfo("Hyundai Tuscon 2022", "All", harness=Harness.none),
 
   # Genesis
   CAR.GENESIS_G70: HyundaiCarInfo("Genesis G70 2018", "All", harness=Harness.hyundai_f),
@@ -244,6 +245,9 @@ FINGERPRINTS = {
   }],
   CAR.PALISADE: [{
     67: 8, 127: 8, 304: 8, 320: 8, 339: 8, 356: 4, 544: 8, 546: 8, 547: 8, 548: 8, 549: 8, 576: 8, 593: 8, 608: 8, 688: 6, 809: 8, 832: 8, 854: 7, 870: 7, 871: 8, 872: 8, 897: 8, 902: 8, 903: 8, 905: 8, 909: 8, 913: 8, 916: 8, 1040: 8, 1042: 8, 1056: 8, 1057: 8, 1064: 8, 1078: 4, 1107: 5, 1123: 8, 1136: 8, 1151: 6, 1155: 8, 1156: 8, 1157: 4, 1162: 8, 1164: 8, 1168: 7, 1170: 8, 1173: 8, 1180: 8, 1186: 2, 1191: 2, 1193: 8, 1210: 8, 1225: 8, 1227: 8, 1265: 4, 1280: 8, 1287: 4, 1290: 8, 1292: 8, 1294: 8, 1312: 8, 1322: 8, 1342: 6, 1345: 8, 1348: 8, 1363: 8, 1369: 8, 1371: 8, 1378: 8, 1384: 8, 1407: 8, 1419: 8, 1427: 6, 1456: 4, 1470: 8, 1988: 8, 1996: 8, 2000: 8, 2004: 8, 2005: 8, 2008: 8, 2012: 8
+  }],
+  CAR.TUCSON_2022: [{
+    1296: 64, 1297: 64, 528: 32, 529: 32, 530: 32, 531: 32, 532: 32, 533: 32, 534: 32, 535: 32, 536: 32, 537: 32, 538: 32, 539: 32, 540: 32, 541: 32, 542: 32, 543: 32, 1077: 16, 1216: 16, 1218: 16, 1220: 16, 1298: 64, 1299: 64, 1300: 64, 1301: 64, 1302: 64, 1303: 64, 1304: 64, 1305: 64, 1306: 64, 1307: 64, 1308: 64, 1309: 64, 1310: 64, 1311: 64, 1488: 64, 784: 32, 1536: 2, 234: 24, 64: 32, 106: 32, 325: 32, 895: 8, 1029: 8, 1040: 8, 1041: 8, 1042: 8, 1043: 8, 1044: 8, 1046: 8, 1047: 8, 1048: 8, 1167: 8, 48: 24, 181: 32, 74: 32, 256: 32, 304: 16, 352: 16, 293: 16, 282: 16, 298: 16, 416: 32, 448: 24, 480: 16, 96: 32, 111: 8, 160: 24, 346: 8, 485: 16, 426: 16, 384: 8, 389: 8, 442: 24, 928: 16, 992: 8, 993: 8, 994: 8, 997: 8, 998: 8, 373: 24, 933: 8, 1050: 8, 1051: 8, 1052: 8, 1049: 8, 1058: 8, 1061: 8, 1074: 8, 1077: 8, 1090: 8, 1092: 8, 1093: 8, 1124: 8, 1160: 8, 1161: 8, 923: 8, 437: 32, 925: 8, 496: 16, 720: 32, 1187: 8, 688: 32, 896: 8, 898: 8, 899: 8, 900: 8, 945: 8, 946: 8, 1063: 8, 1065: 8, 1066: 8, 522: 16, 549: 16, 767: 8, 789: 16, 906: 16, 1138: 8, 1139: 8, 1140: 8, 608: 32, 661: 24, 1204: 8, 1240: 8, 1247: 8, 1151: 8, 794: 32, 842: 32, 1045: 8, 1055: 8, 1264: 8, 1266: 8, 1267: 8, 970: 16, 1278: 8, 234: 24, 64: 32, 106: 32, 325: 32, 895: 8, 1029: 8, 1040: 8, 1041: 8, 1042: 8, 1043: 8, 1044: 8, 1046: 8, 1047: 8, 1048: 8, 1167: 8, 48: 24, 181: 32, 74: 32, 256: 32, 304: 16, 352: 16, 293: 16, 282: 16, 298: 16, 416: 32, 448: 24, 480: 16, 96: 32, 111: 8, 160: 24, 346: 8, 485: 16, 426: 16, 384: 8, 389: 8, 442: 24, 928: 16, 992: 8, 993: 8, 994: 8, 997: 8, 998: 8, 373: 24, 933: 8, 1050: 8, 1051: 8, 1052: 8, 1049: 8, 1058: 8, 1061: 8, 1074: 8, 1077: 8, 1090: 8, 1092: 8, 1093: 8, 1124: 8, 1160: 8, 1161: 8, 923: 8, 437: 32, 925: 8, 496: 16, 720: 32, 1187: 8, 688: 32, 896: 8, 898: 8, 899: 8, 900: 8, 945: 8, 946: 8, 1063: 8, 1065: 8, 1066: 8, 522: 16, 549: 16, 767: 8, 789: 16, 906: 16, 1138: 8, 1139: 8, 1140: 8, 608: 32, 661: 24, 1204: 8, 1240: 8, 1247: 8, 1151: 8, 794: 32, 842: 32, 1045: 8, 1055: 8, 1264: 8, 1266: 8, 1267: 8, 970: 16, 1278: 8
   }],
 }
 
@@ -501,7 +505,6 @@ FW_VERSIONS = {
     ],
     (Ecu.fwdCamera, 0x7c4, None): [
       b'\xf1\x00LFF LKAS AT USA LHD 1.00 1.01 95740-C1000 E51',
-      b'\xf1\x00LFF LKAS AT USA LHD 1.01 1.02 95740-C1000 E52',
     ],
     (Ecu.transmission, 0x7e1, None): [
       b'\xf1\x006T6H0_C2\x00\x006T6B4051\x00\x00TLF0G24NL1\xb0\x9f\xee\xf5',
@@ -510,25 +513,20 @@ FW_VERSIONS = {
       b'\xf1\x87\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xf1\x816T6B4051\x00\x00\xf1\x006T6H0_C2\x00\x006T6B4051\x00\x00TLF0G24SL2n\x8d\xbe\xd8',
       b'\xf1\x87LAHSGN012918KF10\x98\x88x\x87\x88\x88x\x87\x88\x88\x98\x88\x87w\x88w\x88\x88\x98\x886o\xf6\xff\x98w\x7f\xff3\x00\xf1\x816W3B1051\x00\x00\xf1\x006W351_C2\x00\x006W3B1051\x00\x00TLF0T20NL2\x00\x00\x00\x00',
       b'\xf1\x87LAHSGN012918KF10\x98\x88x\x87\x88\x88x\x87\x88\x88\x98\x88\x87w\x88w\x88\x88\x98\x886o\xf6\xff\x98w\x7f\xff3\x00\xf1\x816W3B1051\x00\x00\xf1\x006W351_C2\x00\x006W3B1051\x00\x00TLF0T20NL2H\r\xbdm',
-      b'\xf1\x87LAJSG49645724HF0\x87x\x87\x88\x87www\x88\x99\xa8\x89\x88\x99\xa8\x89\x88\x99\xa8\x89S_\xfb\xff\x87f\x7f\xff^2\xf1\x816W3B1051\x00\x00\xf1\x006W351_C2\x00\x006W3B1051\x00\x00TLF0T20NL2H\r\xbdm',
     ],
   },
-  CAR.TUCSON: {
+  CAR.TUCSON_DIESEL_2019: {
     (Ecu.fwdRadar, 0x7d0, None): [
       b'\xf1\x00TL__ FCA F-CUP      1.00 1.01 99110-D3500         ',
-      b'\xf1\x00TL__ FCA F-CUP      1.00 1.02 99110-D3510         ',
     ],
     (Ecu.engine, 0x7e0, None): [
       b'\xf1\x8971TLC2NAIDDIR002\xf1\x8271TLC2NAIDDIR002',
-      b'\xf1\x81606G3051\x00\x00\x00\x00\x00\x00\x00\x00',
     ],
     (Ecu.fwdCamera, 0x7c4, None): [
       b'\xf1\x00TL  MFC  AT KOR LHD 1.00 1.02 95895-D3800 180719',
-      b'\xf1\x00TL  MFC  AT USA LHD 1.00 1.06 95895-D3800 190107',
     ],
     (Ecu.transmission, 0x7e1, None): [
       b'\xf1\x87LBJXAN202299KF22\x87x\x87\x88ww\x87xx\x88\x97\x88\x87\x88\x98x\x88\x99\x98\x89\x87o\xf6\xff\x87w\x7f\xff\x12\x9a\xf1\x81U083\x00\x00\x00\x00\x00\x00\xf1\x00bcsh8p54  U083\x00\x00\x00\x00\x00\x00TTL2V20KL1\x8fRn\x8a',
-      b'\xf1\x87KMLDCU585233TJ20wx\x87\x88x\x88\x98\x89vfwfwwww\x87f\x9f\xff\x98\xff\x7f\xf9\xf7s\xf1\x816T6G4051\x00\x00\xf1\x006T6J0_C2\x00\x006T6G4051\x00\x00TTL4G24NH2\x00\x00\x00\x00',
     ],
   },
   CAR.SANTA_FE: {
@@ -1197,6 +1195,28 @@ FW_VERSIONS = {
       b'\xf1\x00CV1 MFC  AT USA LHD 1.00 1.05 99210-CV000 211027',
     ],
   },
+
+  CAR.TUCSON_2022: {
+    # (Ecu.esp, 0x7d1, None): [
+    #   b'\xf1\x8758520CV100\xf1\x00CV  IEB \x02 101!\x10\x18 58520-CV100',
+    # ],
+    (Ecu.eps, 0x7d4, None): [
+      b'\xf1\x00NX4 MDPS C 1.00 1.02 56370-N9000 0B24',
+    ],
+    # (Ecu.fwdRadar, 0x7d0, None): [
+    #   b'\xf1\x00CV1_ RDR -----      1.00 1.01 99110-CV000         ',
+    #   b'\xf1\x8799110CV000\xf1\x00CV1_ RDR -----      1.00 1.01 99110-CV000         ',
+    # ],
+    # (Ecu.fwdCamera, 0x7c4, None): [
+    #   b'\xf1\x00CV1 MFC  AT USA LHD 1.00 1.05 99210-CV000 211027',
+    # ],
+    (Ecu.transmission, 0x7e1, None): [
+      b'\xf1\x87954A22D000\xf1\x81T01E60A1  \xf1\x00T01960BL  T01E60A1  BNX4T16X2GE60KS5\xe4\x84N\xc0'
+    ],
+    (Ecu.engine, 0x7e0, None): [
+      b'\xf1\x87391202MNA0'
+    ],
+  },
 }
 
 CHECKSUM = {
@@ -1207,14 +1227,14 @@ CHECKSUM = {
 FEATURES = {
   # which message has the gear
   "use_cluster_gears": {CAR.ELANTRA, CAR.ELANTRA_GT_I30, CAR.KONA},
-  "use_tcu_gears": {CAR.KIA_OPTIMA, CAR.SONATA_LF, CAR.VELOSTER, CAR.TUCSON},
+  "use_tcu_gears": {CAR.KIA_OPTIMA, CAR.SONATA_LF, CAR.VELOSTER, CAR.TUCSON_DIESEL_2019},
   "use_elect_gears": {CAR.KIA_NIRO_EV, CAR.KIA_NIRO_HEV, CAR.KIA_NIRO_HEV_2021, CAR.KIA_OPTIMA_H, CAR.IONIQ_EV_LTD, CAR.KONA_EV, CAR.IONIQ, CAR.IONIQ_EV_2020, CAR.IONIQ_PHEV, CAR.ELANTRA_HEV_2021, CAR.SONATA_HYBRID, CAR.KONA_HEV, CAR.IONIQ_HEV_2022, CAR.SANTA_FE_HEV_2022, CAR.SANTA_FE_PHEV_2022, CAR.IONIQ_PHEV_2019},
 
   # these cars use the FCA11 message for the AEB and FCW signals, all others use SCC12
-  "use_fca": {CAR.SONATA, CAR.SONATA_HYBRID, CAR.ELANTRA, CAR.ELANTRA_2021, CAR.ELANTRA_HEV_2021, CAR.ELANTRA_GT_I30, CAR.KIA_STINGER, CAR.IONIQ_EV_2020, CAR.IONIQ_PHEV, CAR.KONA_EV, CAR.KIA_FORTE, CAR.KIA_NIRO_EV, CAR.PALISADE, CAR.GENESIS_G70, CAR.GENESIS_G70_2020, CAR.KONA, CAR.SANTA_FE, CAR.KIA_SELTOS, CAR.KONA_HEV, CAR.SANTA_FE_2022, CAR.KIA_K5_2021, CAR.IONIQ_HEV_2022, CAR.SANTA_FE_HEV_2022, CAR.SANTA_FE_PHEV_2022, CAR.TUCSON},
+  "use_fca": {CAR.SONATA, CAR.SONATA_HYBRID, CAR.ELANTRA, CAR.ELANTRA_2021, CAR.ELANTRA_HEV_2021, CAR.ELANTRA_GT_I30, CAR.KIA_STINGER, CAR.IONIQ_EV_2020, CAR.IONIQ_PHEV, CAR.KONA_EV, CAR.KIA_FORTE, CAR.KIA_NIRO_EV, CAR.PALISADE, CAR.GENESIS_G70, CAR.GENESIS_G70_2020, CAR.KONA, CAR.SANTA_FE, CAR.KIA_SELTOS, CAR.KONA_HEV, CAR.SANTA_FE_2022, CAR.KIA_K5_2021, CAR.IONIQ_HEV_2022, CAR.SANTA_FE_HEV_2022, CAR.SANTA_FE_PHEV_2022, CAR.TUCSON_DIESEL_2019},
 }
 
-HDA2_CAR = {CAR.KIA_EV6, }
+HDA2_CAR = {CAR.KIA_EV6, CAR.TUCSON_2022}
 
 HYBRID_CAR = {CAR.IONIQ_PHEV, CAR.ELANTRA_HEV_2021, CAR.KIA_NIRO_HEV, CAR.KIA_NIRO_HEV_2021, CAR.SONATA_HYBRID, CAR.KONA_HEV, CAR.IONIQ, CAR.IONIQ_HEV_2022, CAR.SANTA_FE_HEV_2022, CAR.SANTA_FE_PHEV_2022, CAR.IONIQ_PHEV_2019}  # these cars use a different gas signal
 EV_CAR = {CAR.IONIQ_EV_2020, CAR.IONIQ_EV_LTD, CAR.KONA_EV, CAR.KIA_NIRO_EV}
@@ -1259,12 +1279,13 @@ DBC = {
   CAR.SANTA_FE_PHEV_2022: dbc_dict('hyundai_kia_generic', None),
   CAR.SONATA: dbc_dict('hyundai_kia_generic', 'hyundai_kia_mando_front_radar'),
   CAR.SONATA_LF: dbc_dict('hyundai_kia_generic', None), # Has 0x5XX messages, but different format
-  CAR.TUCSON: dbc_dict('hyundai_kia_generic', None),
+  CAR.TUCSON_DIESEL_2019: dbc_dict('hyundai_kia_generic', None),
   CAR.PALISADE: dbc_dict('hyundai_kia_generic', 'hyundai_kia_mando_front_radar'),
   CAR.VELOSTER: dbc_dict('hyundai_kia_generic', None),
   CAR.KIA_CEED: dbc_dict('hyundai_kia_generic', None),
   CAR.KIA_EV6: dbc_dict('kia_ev6', None),
   CAR.SONATA_HYBRID: dbc_dict('hyundai_kia_generic', 'hyundai_kia_mando_front_radar'),
+  CAR.TUCSON_2022: dbc_dict('tucson', 'hyundai_kia_mando_front_radar'),
 }
 
 STEER_THRESHOLD = 150

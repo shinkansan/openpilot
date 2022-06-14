@@ -4,12 +4,12 @@ from typing import Dict, List
 from cereal import car
 from common.params import Params
 from common.basedir import BASEDIR
-from system.version import is_comma_remote, is_tested_branch
+from selfdrive.version import is_comma_remote, is_tested_branch
 from selfdrive.car.interfaces import get_interface_attr
 from selfdrive.car.fingerprints import eliminate_incompatible_cars, all_legacy_fingerprint_cars
 from selfdrive.car.vin import get_vin, VIN_UNKNOWN
 from selfdrive.car.fw_versions import get_fw_versions, match_fw_to_car
-from system.swaglog import cloudlog
+from selfdrive.swaglog import cloudlog
 import cereal.messaging as messaging
 from selfdrive.car import gen_empty_fingerprint
 
@@ -108,10 +108,12 @@ def fingerprint(logcan, sendcan):
     cloudlog.event("Malformed VIN", vin=vin, error=True)
     vin = VIN_UNKNOWN
   cloudlog.warning("VIN %s", vin)
+  cloudlog.warning("FW %s", str(car_fw))
   Params().put("CarVin", vin)
 
   finger = gen_empty_fingerprint()
-  candidate_cars = {i: all_legacy_fingerprint_cars() for i in [0, 1]}  # attempt fingerprint on both bus 0 and 1
+  candidate_cars = {i: all_legacy_fingerprint_cars() for i in [0, 6]}  # attempt fingerprint on both bus 0 and 1
+
   frame = 0
   frame_fingerprint = 25  # 0.25s
   car_fingerprint = None
